@@ -10,6 +10,6 @@ const getAuthorData = () =>{
     
 }
 
-
-
 module.exports = getAuthorData;
+
+
