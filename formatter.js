@@ -33,9 +33,10 @@ getAuthorData()
 
   let links = $('li[role="article"]> div[class="header module"]> h4[class="heading"] > a')
     .toArray()
-    .map(el => "https://archiveofourown.org/" + $(el).attr("href"))
+    .map(el => "https://archiveofourown.org/" + $(el).attr("href"));
+
   links = links.filter((link, i) =>{
-    (i % 2) != 1;
+    return (i % 2) != 1;
   })
 
 
@@ -46,7 +47,6 @@ getAuthorData()
     .map(el => $(el).text())
   works = works.filter(work => work != "iluv2eat");
 
-  console.log(data);
 
   works.map(work =>{
     const obj = Object.create(workTemplate)
@@ -64,6 +64,9 @@ getAuthorData()
     elem.summary = summary;
 
   }
+
+  console.log(links);
+
 
   fs.writeFile('res/result.txt', JSON.stringify(data), (err) => {
     // throws an error, you could also catch it here
