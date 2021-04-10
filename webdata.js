@@ -3,7 +3,7 @@ var axios = require("axios");
 
 const getAuthorData = (user) =>{
 
-    let url = `https://archiveofourown.org/users/${user}/pseuds/iluv2eat/works`;
+    let url = `https://archiveofourown.org/users/${user}/pseuds/${user}/works`;
 
     const res = axios.get(url);
     
